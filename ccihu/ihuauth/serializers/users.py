@@ -4,4 +4,5 @@ from ..models import IHUUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=IHUUser
-        fields = ('active','last_password_change_request')
+        fields = ('id', 'username', 'email', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
