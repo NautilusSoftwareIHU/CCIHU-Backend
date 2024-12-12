@@ -9,11 +9,8 @@ class IsActive(IsAuthenticated):
 
 class IsInactive(BasePermission):
     def has_permission(self, request, view):
-        is_active = IsActive()
-        if(is_active.has_Permission(request, view)):
-            return False
-        else:
-            return True
+        return bool(request.user and not request.user.is_anonymous
+                    and not request.user.active)
 
 class IsAnonymous(BasePermission):
     def has_permission(self, request, view):
