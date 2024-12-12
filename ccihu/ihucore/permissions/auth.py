@@ -1,19 +1,20 @@
 from rest_framework.permissions import IsAuthenticated, BasePermission
 
 class IsActive(IsAuthenticated):
-    def has_Permission(self, request, view):
+    def has_permission(self, request, view):
         return bool(request.user and not request.user.is_anonymous
                     and request.user.active)
     
 
 
-class IsInactive():
-    def has_Permission(self, request, view):
-        if(IsActive.has_Permission()):
+class IsInactive(BasePermission):
+    def has_permission(self, request, view):
+        is_active = IsActive()
+        if(is_active.has_Permission(request, view)):
             return False
         else:
             return True
 
-class IsAnonymous():
+class IsAnonymous(BasePermission):
     def has_permission(self, request, view):
-        return bool(request.user.is_anonymous)
+        return bool(request.user and request.user.is_anonymous)
