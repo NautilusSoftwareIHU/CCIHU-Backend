@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ihuauth.views import IhuUserView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',IhuUserView.as_view()),
 ]

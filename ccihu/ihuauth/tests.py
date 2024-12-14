@@ -9,11 +9,11 @@ class UserSerializerTest(TestCase):
             username="testuser", email="test@example.com", password="securepassword"
         )
 
-    def test_serialization(self):
+    def test_deserialization(self):
         serializer = UserSerializer(self.user)
         self.assertEqual(serializer.data['username'], "testuser")
 
-    def test_deserialization(self):
+    def test_serialization(self):
         data = {"username": "newuser", "email": "new@example.com", "password": "newpassword"}
         serializer = UserSerializer(data=data)
         self.assertTrue(serializer.is_valid())
