@@ -11,6 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+         ('ihuauth', '0001_initial'),
         ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
