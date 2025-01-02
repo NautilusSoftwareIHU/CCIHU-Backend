@@ -4,7 +4,7 @@ from .serializers import UserSerializer
 
 class UserSerializerTest(TestCase):
     def setUp(self):
-        # Δημιουργία test χρήστη
+        # Create user test case
         self.user = IHUUser.objects.create(
             username="testuser", email="test@example.com", password="securepassword"
         )
