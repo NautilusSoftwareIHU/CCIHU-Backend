@@ -6,7 +6,6 @@ from django.utils.timezone import now
 class UserRateLimitTypes(models.Model):
     name = models.CharField(max_length=50, unique=True)  # e.g., 'API Request', 'Login Attempt'
    
-
     def __str__(self):
         return self.name
     
