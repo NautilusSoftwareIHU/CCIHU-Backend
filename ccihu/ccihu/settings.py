@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'ccihu',
     'ihuauth',
     'rest_framework_simplejwt',
-]
+    'ihucore'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
