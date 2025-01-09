@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'ccihu',
-    'ihuauth'
+    'ihuauth',
+    'ihucore'
 ]
 
 MIDDLEWARE = [
