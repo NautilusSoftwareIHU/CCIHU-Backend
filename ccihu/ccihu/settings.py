@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'  # RabbitMQ broker URL
+CELERY_RESULT_BACKEND = 'rpc://'  # Χρησιμοποιούμε το RabbitMQ για αποθήκευση αποτελεσμάτων
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,9 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',
+    'rest_framework',   
     'ccihu',
-    'ihuauth'
+    'ihuauth',
+    'celery',
 ]
 
 MIDDLEWARE = [
